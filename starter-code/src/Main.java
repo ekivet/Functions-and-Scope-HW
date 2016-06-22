@@ -11,10 +11,10 @@ public class Main {
         // Pretend you're running an online store. Complete the "helper" methods below and call them here in main().
 
         // 1) Complete the setStoreName() method below and use it to save your store's name
-        setStoreName("put your store's name here, e.g. Bob's Discount Warehouse");
+        setStoreName("Eric's");
 
         // 2) Complete the greetCustomer() method below
-        String greeting = greetCustomer("put a customer name here");
+        String greeting = greetCustomer("Bob");
         System.out.println(greeting);
 
 
@@ -65,6 +65,8 @@ public class Main {
      * @param name, as String
      */
     public static void setStoreName(String name) {
+
+        mStoreName = name;
         // update the value of mStoreName, then explain in a comment why you can access that variable
         // from within the scope of this method, since mStoreName is NOT local to this method.
     }
@@ -81,6 +83,9 @@ public class Main {
      */
     public static String greetCustomer(String customerName) {
         // do some concatenation and return the result
+        String welcomegreeting = "Hi, " + customerName + "welcome to " +mStoreName;
+        System.out.println(welcomegreeting);
+        return customerName;
     }
 
 
@@ -94,6 +99,9 @@ public class Main {
      */
     public static double getSalePrice(double fullPrice, double discount) {
         // do some math and return the sale price
+        double salePrice = fullPrice * (1 - discount);
+        System.out.println(salePrice);
+        return salePrice;
     }
 
 
@@ -110,6 +118,10 @@ public class Main {
 
         // hint - consider the DRY principle: Don't Repeat Yourself!
         // can you use the getSalePrice() method here to avoid repeating logic you've already written?
+
+        double clearancePrice = getSalePrice(fullPrice, discount) * 0.50
+        System.out.println(clearancePrice);
+        return clearancePrice;
     }
 
 
@@ -131,6 +143,29 @@ public class Main {
     public static double getBulkDiscount(int quantityPurchased) {
         // there are multiple ways to do this - we discussed a situation where the remainder from
         // division is truncated (removed). Can you use that to help you here?
+        double discount = 0;
+        if (quantityPurchased <=4){
+
+            discount = 0;
+        }
+        else if (quantityPurchased >= 5 && quantityPurchased <=9){
+
+             discount = 0.05;
+        }
+
+        else if (quantityPurchased >= 9 && quantityPurchased<= 14){
+
+            discount = 0.1;
+        }
+
+        else if (quantityPurchased >=15 && quantityPurchased <=19){
+
+            discount = .15;
+
+
+        }
+
+        return discount
     }
 
 
